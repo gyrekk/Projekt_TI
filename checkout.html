@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Podsumowanie zamówienia</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>Podsumowanie zamówienia</h2>
+    <ul id="order-summary"></ul>
+
+    <h3>Formularz zamówienia</h3>
+    <form id="order-form">
+      <input type="text" id="name" placeholder="Imię i nazwisko" required />
+      <input type="text" id="address" placeholder="Adres dostawy" required />
+      <button type="submit">Zamów</button>
+    </form>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const orderSummary = document.getElementById("order-summary");
+
+        if (cart.length === 0) {
+          orderSummary.innerHTML = "<p>Koszyk jest pusty.</p>";
+        } else {
+          cart.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = `${item.name} - ${item.price}`;
+            orderSummary.appendChild(li);
+          });
+        }
+
+        document
+          .getElementById("order-form")
+          .addEventListener("submit", (event) => {
+            event.preventDefault();
+            alert("Zamówienie zostało złożone!");
+            localStorage.removeItem("cart");
+            window.close();
+          });
+      });
+    </script>
+  </body>
+</html>

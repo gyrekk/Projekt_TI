@@ -1,9 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt TI</title>
+    <title>Sklep Internetowy</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div id="login-form" class="hidden">
+      <h2>Zaloguj się</h2>
+      <input type="text" id="username" placeholder="Nazwa użytkownika" />
+      <input type="password" id="password" placeholder="Hasło" />
+      <button id="submit-login">Zaloguj</button>
+      <p>Nie masz konta? <button id="register-btn">Zarejestruj się</button></p>
+    </div>
+    <div id="register-form" class="hidden">
+      <h2>Rejestracja</h2>
+      <input
+        type="text"
+        id="new-username"
+        placeholder="Nowa nazwa użytkownika"
+      />
+      <input type="password" id="new-password" placeholder="Nowe hasło" />
+      <button id="submit-register">Zarejestruj</button>
+    </div>
+    <header>
+      <h1>Sklep Internetowy</h1>
+      <div class="header-buttons">
+        <button id="cart-btn">Koszyk</button>
+        <button id="login-btn">Zaloguj się</button>
+      </div>
+    </header>
+    <main>
+      <div id="product-list" class="product-list"></div>
+      <div id="cart" class="hidden">
+        <h2>Twój Koszyk</h2>
+        <ul id="cart-items"></ul>
+        <button id="checkout-btn">Złóż zamówienie</button>
+        <button id="close-cart">Zamknij koszyk</button>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

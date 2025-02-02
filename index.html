@@ -3,24 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sklep Internetowy</title>
+    <title>MindSync</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <nav class="nav">
+      <div class="cross">
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <ul>
+        <li><a href="#kontakt">Home</a></li>
+        <li><a href="#kontakt">Home</a></li>
+        <li><a href="#kontakt">Home</a></li>
+        <li><a href="#kontakt">Home</a></li>
+        <li><a href="#kontakt">Home</a></li>
+      </ul>
+    </nav>
     <header>
-      <h1>Sklep Internetowy</h1>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <h1>MindSync</h1>
       <div class="header-buttons">
         <button id="cart-btn">Koszyk</button>
         <button id="login-btn">Zaloguj się</button>
       </div>
     </header>
-    <nav>
-      <a href="#kontakt">Home</a>
-      <a href="#kontakt">Contact</a>
-      <a href="#kontakt">About</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
+
     <div class="login">
       <div id="login-form" class="hidden">
         <h2>Zaloguj się</h2>
@@ -42,6 +54,24 @@
         <button id="submit-register">Zarejestruj</button>
       </div>
     </div>
+    <div class="home">
+      <div class="left">
+        <h1>/ NeuroLink_Band_Pro</h1>
+        <p>
+          Odkryj rewolucję w interakcji z elektroniką! NeuroLink Band to
+          innowacyjna opaska BCI (Brain-Computer Interface), która pozwala
+          sterować urządzeniami za pomocą myśli. Dzięki zaawansowanej
+          technologii EEG i sztucznej inteligencji możesz kontrolować swój
+          smartfon, komputer, a nawet inteligentny dom – bez użycia rąk. Jak
+          działa NeuroLink Band?
+        </p>
+        <button>Buy Now</button>
+        <a href="#">More</a>
+      </div>
+      <div class="right">
+        <img src="img/NeuroLink_Band_Pro.jpg" alt="" />
+      </div>
+    </div>
     <main>
       <div id="product-list" class="product-list"></div>
       <div id="cart" class="hidden">
@@ -51,7 +81,43 @@
         <button id="close-cart">Zamknij koszyk</button>
       </div>
     </main>
-    <footer></footer>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>MindSync</h2>
+          </div>
+          <nav class="footer-nav">
+            <ul>
+              <li><a href="/about">O nas</a></li>
+              <li><a href="/services">Usługi</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/contact">Kontakt</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/privacy-policy">Polityka prywatności</a></li>
+            </ul>
+          </nav>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="footer-contact">
+            <p>
+              Email:
+              <a href="mailto:contact@mindsync.com">contact@mindsync.com</a>
+            </p>
+            <p>Telefon: +48 123 456 789</p>
+            <p>Adres: ul. Przykładowa 10, 00-000 Warszawa</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 MindSync. Wszelkie prawa zastrzeżone.</p>
+        </div>
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

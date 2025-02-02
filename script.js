@@ -1,3 +1,9 @@
+document.querySelector(".hamburger").addEventListener("click", () => {
+  document.querySelector(".nav").classList.add("active");
+});
+document.querySelector(".cross").addEventListener("click", () => {
+  document.querySelector(".nav").classList.remove("active");
+});
 const users = [
   { username: "admin", password: "admin123" },
   { username: "uzytkownik1", password: "haslo1" },
@@ -106,10 +112,21 @@ checkoutBtn.addEventListener("click", () => {
 
 // Produkty
 const products = [
-  { name: "Produkt 1", price: 49.99, image: "https://via.placeholder.com/150" },
-  { name: "Produkt 2", price: 99.99, image: "https://via.placeholder.com/150" },
-  { name: "Produkt 3", price: 49.99, image: "https://via.placeholder.com/150" },
-  { name: "Produkt 4", price: 99.99, image: "https://via.placeholder.com/150" },
+  {
+    name: "NeuroLink Band",
+    price: 499.99,
+    image: "img/NeuroLink_Band_Standard.jpg",
+  },
+  {
+    name: "NeuroLink Band Pro",
+    price: 899.99,
+    image: "img/NeuroLink_Band_Pro.jpg",
+  },
+  {
+    name: "NeuroLink Band Ultra",
+    price: 1499.99,
+    image: "img/NeuroLink_Band_Ultra.jpg",
+  },
 ];
 
 const productList = document.getElementById("product-list");
@@ -120,7 +137,7 @@ products.forEach((product) => {
   productDiv.innerHTML = `
     <img src="${product.image}" alt="${product.name}">
     <h3>${product.name}</h3>
-    <p>${product.price.toFixed(2)} PLN</p>
+    <p>$${product.price.toFixed(2)}</p>
     <button class="add-to-cart">Dodaj do koszyka</button>
   `;
 

@@ -114,43 +114,101 @@ checkoutBtn.addEventListener("click", () => {
 const products = [
   {
     name: "NeuroLink Band",
+    description:
+      "To świetny wybór dla osób, które dopiero zaczynają swoją przygodę z interakcją myślami. Dzięki prostym funkcjom, takim jak sterowanie muzyką, przewijanie stron internetowych czy podstawowe komendy w urządzeniach smart home, pozwala łatwo wejść w świat BCI.",
     price: 499.99,
     image: "img/NeuroLink_Band_Standard.jpg",
   },
   {
     name: "NeuroLink Band Pro",
+    description:
+      "Zaprojektowana dla użytkowników, którzy chcą większej precyzji i kontroli. Dzięki bardziej zaawansowanej technologii, umożliwia zarządzanie kilkoma urządzeniami naraz, wygodne sterowanie aplikacjami i grami, a także szybkie dostosowanie do indywidualnych potrzeb użytkownika.",
     price: 899.99,
     image: "img/NeuroLink_Band_Pro.jpg",
   },
   {
     name: "NeuroLink Band Ultra",
+    description:
+      "Dla tych, którzy chcą najwyższego poziomu interakcji z technologią. Oferuje pełną personalizację i adaptację do użytkownika, pozwala na precyzyjne sterowanie różnymi urządzeniami, a także rozpoznawanie bardziej zaawansowanych komend, takich jak zmiany nastroju czy reakcje na emocje.",
     price: 1499.99,
     image: "img/NeuroLink_Band_Ultra.jpg",
   },
 ];
 
-const productList = document.getElementById("product-list");
+let currentIndex = 0;
 
-products.forEach((product) => {
-  const productDiv = document.createElement("div");
-  productDiv.classList.add("product");
-  productDiv.innerHTML = `
-    <img src="${product.image}" alt="${product.name}">
-    <h3>${product.name}</h3>
-    <p>$${product.price.toFixed(2)}</p>
-    <button class="add-to-cart">Dodaj do koszyka</button>
-  `;
+const updateProductDisplay = () => {
+  const product = products[currentIndex];
+  document.querySelector(".left h1").textContent = product.name;
+  document.querySelector(".left p").textContent = product.description;
+  document.querySelector(".buy-button").textContent = `Buy ${product.price}`;
+  document.querySelector(".right img").src = product.image;
+  document.querySelector("#carousel-index").textContent = `${String(
+    currentIndex + 1
+  ).padStart(2, "0")} / ${String(products.length).padStart(2, "0")}`;
+};
 
-  productDiv.querySelector(".add-to-cart").addEventListener("click", () => {
-    if (loggedInUser) {
-      addToCart(product);
-    } else {
-      alert("Musisz być zalogowany, aby dodać produkt do koszyka.");
-    }
+document.getElementById("prev-btn").addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + products.length) % products.length;
+  updateProductDisplay();
+});
+
+document.getElementById("next-btn").addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % products.length;
+  updateProductDisplay();
+});
+
+// Initialize with the first product
+updateProductDisplay();
+
+const generateProductList = () => {
+  const productList = document.getElementById("product-list");
+  productList.innerHTML = ""; // Wyczyść listę przed generowaniem
+
+  products.forEach((product, index) => {
+    const productDiv = document.createElement("div");
+    productDiv.classList.add("product");
+    productDiv.id = `product-${index}`; // PRZYPISANIE ID NA PODSTAWIE INDEXU
+    productDiv.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>$${product.price.toFixed(2)}</p>
+      <button class="add-to-cart">Dodaj do koszyka</button>
+    `;
+
+    productDiv.querySelector(".add-to-cart").addEventListener("click", () => {
+      if (loggedInUser) {
+        addToCart(product);
+      } else {
+        alert("Musisz być zalogowany, aby dodać produkt do koszyka.");
+      }
+    });
+
+    productList.appendChild(productDiv);
+  });
+};
+
+// Funkcja obsługi przycisku "Buy"
+document.querySelector(".buy-button").addEventListener("click", () => {
+  // Scroll to the main section
+  document.querySelector("main").scrollIntoView({ behavior: "smooth" });
+
+  // Get the product to highlight
+  const productToHighlight = document.getElementById(`product-${currentIndex}`);
+
+  // Usuń poprzednie podświetlenia
+  document.querySelectorAll(".product").forEach((product) => {
+    product.classList.remove("highlight");
   });
 
-  productList.appendChild(productDiv);
+  // Dodaj podświetlenie do wybranego produktu
+  if (productToHighlight) {
+    productToHighlight.classList.add("highlight");
+  }
 });
+
+// Inicjalizacja: wygeneruj listę produktów
+generateProductList();
 
 function addToCart(product) {
   const existingProduct = cart.find((item) => item.name === product.name);

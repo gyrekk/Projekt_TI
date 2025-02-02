@@ -99,34 +99,75 @@ nav ul li a {
   text-decoration: none;
 }
 .home {
-  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5%;
   height: 90vh;
-  display: flex;
-  width: 100%;
 }
+
 .home .left {
-  padding: 10vh;
-  border: 1px solid black;
   width: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  justify-content: center;
+  padding-right: 5%;
 }
+
+.home .left h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
 .home .left p {
-  max-width: 100%;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
+
+.home .buy-button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.home .buy-button:hover {
+  background: black;
+  color: white;
+}
+
 .home .right {
-  border: 1px solid black;
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .home .right img {
-  max-width: 70%;
+  max-width: 80%;
   height: auto;
 }
+
+.carousel-controls {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carousel-controls button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#carousel-index {
+  font-size: 1rem;
+}
+
 main {
   border: 1px solid black;
   height: 100vh;
@@ -225,6 +266,19 @@ main {
 .product img {
   max-width: 100%;
   height: auto;
+}
+
+.product.highlight {
+  animation: highlight 1.5s ease;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: transparent;
+  }
 }
 
 #cart {

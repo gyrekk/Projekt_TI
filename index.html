@@ -7,23 +7,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="login-form" class="hidden">
-      <h2>Zaloguj się</h2>
-      <input type="text" id="username" placeholder="Nazwa użytkownika" />
-      <input type="password" id="password" placeholder="Hasło" />
-      <button id="submit-login">Zaloguj</button>
-      <p>Nie masz konta? <button id="register-btn">Zarejestruj się</button></p>
-    </div>
-    <div id="register-form" class="hidden">
-      <h2>Rejestracja</h2>
-      <input
-        type="text"
-        id="new-username"
-        placeholder="Nowa nazwa użytkownika"
-      />
-      <input type="password" id="new-password" placeholder="Nowe hasło" />
-      <button id="submit-register">Zarejestruj</button>
-    </div>
     <header>
       <h1>Sklep Internetowy</h1>
       <div class="header-buttons">
@@ -31,6 +14,33 @@
         <button id="login-btn">Zaloguj się</button>
       </div>
     </header>
+    <nav>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt">Kontakt</a>
+
+    </nav>
+    <div class="login">
+      <div id="login-form" class="hidden">
+        <h2>Zaloguj się</h2>
+        <input type="text" id="username" placeholder="Nazwa użytkownika" />
+        <input type="password" id="password" placeholder="Hasło" />
+        <button id="submit-login">Zaloguj</button>
+        <p>Nie masz konta? <button id="register-btn">Zarejestruj się</button></p>
+      </div>
+      <div id="register-form" class="hidden">
+        <h2>Rejestracja</h2>
+        <input
+          type="text"
+          id="new-username"
+          placeholder="Nowa nazwa użytkownika"
+        />
+        <input type="password" id="new-password" placeholder="Nowe hasło" />
+        <button id="submit-register">Zarejestruj</button>
+      </div>
+    </div>
     <main>
       <div id="product-list" class="product-list"></div>
       <div id="cart" class="hidden">
@@ -40,6 +50,9 @@
         <button id="close-cart">Zamknij koszyk</button>
       </div>
     </main>
+    <footer>
+      
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

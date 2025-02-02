@@ -7,12 +7,35 @@ body {
 header {
   display: flex;
   justify-content: space-between;
+  padding: 0 10%;
   align-items: center;
   background: #333;
   color: white;
-  padding: 10px 20px;
+  height: 10vh
+}
+nav {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  padding: 0 10%;
+
+}
+nav a {
+  color: #333;
+  text-decoration: none;
 }
 
+main {
+  height: 85vh;
+  background: #333;
+  padding: 0 10%;
+
+}
+footer {
+  height: 10vh;
+}
 .header-buttons button {
   margin-left: 10px;
   padding: 5px 10px;
@@ -25,11 +48,16 @@ header {
 }
 
 #login-form,
-#register-form,
+#register-form {
+  padding: 20px;
+  background: #696969;
+  text-align: center;
+  border-radius: 5px;
+}
+
 #cart {
   padding: 20px;
   max-width: 300px;
-  margin: auto;
   background: #f4f4f4;
   text-align: center;
   border-radius: 5px;
@@ -37,16 +65,18 @@ header {
 }
 
 #product-list {
-  display: flex;
+  display:flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
+  width: 100%;
+  position:relative;
 }
 
 .product {
+  height: 10vh;
+  display: flex;
+  width: 100%;
   border: 1px solid #ddd;
-  padding: 10px;
-  width: 200px;
   text-align: center;
 }
 

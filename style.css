@@ -1,17 +1,20 @@
-body {
-  font-family: Arial, sans-serif;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  padding: 0 5%;
 }
 
 header {
   display: flex;
   justify-content: space-between;
-  padding: 0 10%;
   align-items: center;
-  background: #333;
-  color: white;
-  height: 10vh
+  color: black;
+  height: 10vh;
+  border: 1px solid black;
 }
 nav {
   height: 5vh;
@@ -19,19 +22,15 @@ nav {
   justify-content: center;
   align-items: center;
   gap: 10%;
-  padding: 0 10%;
-
 }
 nav a {
-  color: #333;
+  color: #000000;
   text-decoration: none;
 }
 
 main {
+  border: 1px solid black;
   height: 85vh;
-  background: #333;
-  padding: 0 10%;
-
 }
 footer {
   height: 10vh;
@@ -65,18 +64,21 @@ footer {
 }
 
 #product-list {
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  position:relative;
+  height: 100%;
+  position: relative;
+  gap: 20px;
 }
 
 .product {
   height: 10vh;
   display: flex;
-  width: 100%;
-  border: 1px solid #ddd;
+  width: calc(50% - 10px);
+  height: calc(50% - 10px);
+  border: 1px solid #000000;
   text-align: center;
 }
 

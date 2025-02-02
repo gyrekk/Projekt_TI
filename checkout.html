@@ -8,28 +8,82 @@
   </head>
   <body>
     <h2>Podsumowanie zamówienia</h2>
+
     <ul id="order-summary"></ul>
+    <p>
+      <strong>Łączna ilość produktów:</strong>
+      <span id="total-quantity">0</span>
+    </p>
+    <p><strong>Łączna kwota:</strong> <span id="total-price">0.00 PLN</span></p>
 
     <h3>Formularz zamówienia</h3>
     <form id="order-form">
+      <h4>Dane osobowe</h4>
       <input type="text" id="name" placeholder="Imię i nazwisko" required />
+      <input type="email" id="email" placeholder="Adres e-mail" required />
+      <input type="tel" id="phone" placeholder="Numer telefonu" required />
       <input type="text" id="address" placeholder="Adres dostawy" required />
-      <button type="submit">Zamów</button>
+
+      <h4>Sposób płatności</h4>
+      <label
+        ><input type="radio" name="payment" value="karta" required /> Karta
+        płatnicza</label
+      ><br />
+      <label
+        ><input type="radio" name="payment" value="blik" required /> BLIK</label
+      ><br />
+      <label
+        ><input type="radio" name="payment" value="przelew" required /> Przelew
+        bankowy</label
+      ><br />
+      <label
+        ><input type="radio" name="payment" value="pobranie" required />
+        Płatność przy odbiorze</label
+      ><br />
+
+      <h4>Wybór dostawy</h4>
+      <label
+        ><input type="radio" name="delivery" value="kurier" required />
+        Kurier</label
+      ><br />
+      <label
+        ><input type="radio" name="delivery" value="paczkomat" required />
+        Paczkomat</label
+      ><br />
+      <label
+        ><input type="radio" name="delivery" value="odbior" required /> Odbiór
+        osobisty</label
+      ><br />
+
+      <button type="submit">Złóż zamówienie</button>
     </form>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         const orderSummary = document.getElementById("order-summary");
+        const totalQuantityElem = document.getElementById("total-quantity");
+        const totalPriceElem = document.getElementById("total-price");
+
+        let totalQuantity = 0;
+        let totalPrice = 0;
 
         if (cart.length === 0) {
           orderSummary.innerHTML = "<p>Koszyk jest pusty.</p>";
         } else {
           cart.forEach((item) => {
+            totalQuantity += item.quantity;
+            totalPrice += item.quantity * item.price;
+
             const li = document.createElement("li");
-            li.textContent = `${item.name} - ${item.price}`;
+            li.textContent = `${item.name} - ${item.price.toFixed(2)} PLN (x${
+              item.quantity
+            })`;
             orderSummary.appendChild(li);
           });
+
+          totalQuantityElem.textContent = totalQuantity;
+          totalPriceElem.textContent = totalPrice.toFixed(2) + " PLN";
         }
 
         document
@@ -38,7 +92,7 @@
             event.preventDefault();
             alert("Zamówienie zostało złożone!");
             localStorage.removeItem("cart");
-            window.close();
+            window.location.href = "index.html";
           });
       });
     </script>

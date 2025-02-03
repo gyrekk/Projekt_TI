@@ -191,7 +191,7 @@ const generateProductList = () => {
 // Funkcja obsługi przycisku "Buy"
 document.querySelector(".buy-button").addEventListener("click", () => {
   // Scroll to the main section
-  document.querySelector("main").scrollIntoView({ behavior: "smooth" });
+  document.getElementById("produkty").scrollIntoView({ behavior: "smooth" });
 
   // Get the product to highlight
   const productToHighlight = document.getElementById(`product-${currentIndex}`);

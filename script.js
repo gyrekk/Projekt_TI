@@ -139,7 +139,7 @@ let currentIndex = 0;
 
 const updateProductDisplay = () => {
   const product = products[currentIndex];
-  document.querySelector(".left h1").textContent = product.name;
+  document.querySelector(".left h1").textContent = `/ ${product.name}`;
   document.querySelector(".left p").textContent = product.description;
   document.querySelector(".buy-button").textContent = `Buy ${product.price}`;
   document.querySelector(".right img").src = product.image;
@@ -234,7 +234,7 @@ function updateCart() {
       const totalPrice = (item.price * item.quantity).toFixed(2);
       const li = document.createElement("li");
       li.innerHTML = `
-        ${item.name} - ${totalPrice} PLN (x${item.quantity}) 
+        ${item.name} - ${totalPrice} USD (x${item.quantity}) 
         <button class="decrease-qty" data-index="${index}">-</button>
         <button class="increase-qty" data-index="${index}">+</button>
         <button class="remove-from-cart" data-index="${index}">Usuń</button>

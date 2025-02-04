@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MindSync</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/0cd9fae306.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <nav class="nav">
@@ -21,43 +25,48 @@
       </ul>
     </nav>
     <header>
-      <div class="hamburger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+      <div class="header-left">
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
       </div>
+
       <h1>MindSync</h1>
       <div class="header-buttons">
-        <button id="cart-btn">Koszyk</button>
-        <button id="login-btn">Zaloguj się</button>
+        <button id="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+        <button id="login-btn"><i class="fa-solid fa-user"></i></button>
       </div>
       <div id="cart" class="hidden">
         <h2>Twój Koszyk</h2>
         <ul id="cart-items"></ul>
         <button id="checkout-btn">Złóż zamówienie</button>
-        <button id="close-cart">Zamknij koszyk</button>
       </div>
     </header>
 
     <div class="login">
       <div id="login-form" class="hidden">
-        <h2>Zaloguj się</h2>
-        <input type="text" id="username" placeholder="Nazwa użytkownika" />
-        <input type="password" id="password" placeholder="Hasło" />
-        <button id="submit-login">Zaloguj</button>
-        <p>
-          Nie masz konta? <button id="register-btn">Zarejestruj się</button>
-        </p>
+        <div class="login-form">
+          <h2>Zaloguj się</h2>
+          <input type="text" id="username" placeholder="Nazwa użytkownika" />
+          <input type="password" id="password" placeholder="Hasło" />
+          <button id="submit-login">Zaloguj</button>
+          <h3>Nie masz konta?</h3>
+          <button id="register-btn">Zarejestruj się</button>
+        </div>
       </div>
       <div id="register-form" class="hidden">
-        <h2>Rejestracja</h2>
-        <input
-          type="text"
-          id="new-username"
-          placeholder="Nowa nazwa użytkownika"
-        />
-        <input type="password" id="new-password" placeholder="Nowe hasło" />
-        <button id="submit-register">Zarejestruj</button>
+        <div class="login-form">
+          <h2>Rejestracja</h2>
+          <input
+            type="text"
+            id="new-username"
+            placeholder="Nowa nazwa użytkownika"
+          />
+          <input type="password" id="new-password" placeholder="Nowe hasło" />
+          <button id="submit-register">Zarejestruj</button>
+        </div>
       </div>
     </div>
     <main class="home">
@@ -70,54 +79,57 @@
         <img src="" alt="" />
       </div>
       <div class="home-footer">
-        <div>O produkcie</div>
+        <a href="#" id="product-link">
+          <button class="product-button">Więcej informacji</button>
+        </a>
         <div class="carousel-controls">
-          <button id="prev-btn">&larr;</button>
+          <button id="prev-btn"><i class="fa-solid fa-arrow-left"></i></button>
           <span id="carousel-index">01 / 04</span>
-          <button id="next-btn">&rarr;</button>
+          <button id="next-btn"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
     </main>
 
     <div id="produkty">
+      <div class="produkty-header">
+        <h2>/ Nasze produkty</h2>
+      </div>
       <div id="product-list"></div>
     </div>
 
     <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-logo">
-            <h2>MindSync</h2>
-          </div>
-          <nav class="footer-nav">
-            <ul>
-              <li><a href="/about">O nas</a></li>
-              <li><a href="/services">Usługi</a></li>
-              <li><a href="/blog">Blog</a></li>
-              <li><a href="/contact">Kontakt</a></li>
-              <li><a href="/faq">FAQ</a></li>
-              <li><a href="/privacy-policy">Polityka prywatności</a></li>
-            </ul>
-          </nav>
-          <div class="footer-social">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-          </div>
-          <div class="footer-contact">
-            <p>
-              Email:
-              <a href="mailto:contact@mindsync.com">contact@mindsync.com</a>
-            </p>
-            <p>Telefon: +48 123 456 789</p>
-            <p>Adres: ul. Przykładowa 10, 00-000 Warszawa</p>
-          </div>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>MindSync</h2>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2024 MindSync. Wszelkie prawa zastrzeżone.</p>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="/about">O nas</a></li>
+            <li><a href="/services">Usługi</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Kontakt</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/privacy-policy">Polityka prywatności</a></li>
+          </ul>
+        </nav>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
+        <div class="footer-contact">
+          <p>
+            Email:
+            <a href="mailto:contact@mindsync.com">contact@mindsync.com</a>
+          </p>
+          <p>Telefon: +48 123 456 789</p>
+          <p>Adres: Al. Niepodległości 10, 61-875 Poznań</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 MindSync. Wszelkie prawa zastrzeżone.</p>
       </div>
     </footer>
     <script src="script.js"></script>

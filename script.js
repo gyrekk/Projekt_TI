@@ -48,7 +48,9 @@ document.getElementById("submit-login").addEventListener("click", () => {
     loggedInUser = username;
     alert(`Zalogowano jako ${username}`);
     document.getElementById("login-form").classList.add("hidden");
-    document.getElementById("login-btn").textContent = `Wyloguj (${username})`;
+    document.getElementById(
+      "login-btn"
+    ).textContent = `<i class="fa-solid fa-user"></i> (${username})`;
     document.getElementById("username").value = "";
     document.getElementById("password").value = "";
   } else {
@@ -97,10 +99,6 @@ cartBtn.addEventListener("click", () => {
   updateCart();
 });
 
-closeCartBtn.addEventListener("click", () => {
-  cartSection.classList.add("hidden");
-});
-
 checkoutBtn.addEventListener("click", () => {
   if (cart.length === 0) {
     alert("Koszyk jest pusty! Dodaj produkty przed złożeniem zamówienia.");
@@ -117,35 +115,39 @@ const products = [
     description:
       "To świetny wybór dla osób, które dopiero zaczynają swoją przygodę z interakcją myślami. Dzięki prostym funkcjom, takim jak sterowanie muzyką, przewijanie stron internetowych czy podstawowe komendy w urządzeniach smart home, pozwala łatwo wejść w świat BCI.",
     price: 499.99,
-    image: "img/NeuroLink_Band_Standard.jpg",
+    image: "img/NeuroLink_Band_Standard.png",
   },
   {
     name: "NeuroLink Band Pro",
     description:
       "Zaprojektowana dla użytkowników, którzy chcą większej precyzji i kontroli. Dzięki bardziej zaawansowanej technologii, umożliwia zarządzanie kilkoma urządzeniami naraz, wygodne sterowanie aplikacjami i grami, a także szybkie dostosowanie do indywidualnych potrzeb użytkownika.",
     price: 899.99,
-    image: "img/NeuroLink_Band_Pro.jpg",
+    image: "img/NeuroLink_Band_Pro.png",
   },
   {
     name: "NeuroLink Band Ultra",
     description:
       "Dla tych, którzy chcą najwyższego poziomu interakcji z technologią. Oferuje pełną personalizację i adaptację do użytkownika, pozwala na precyzyjne sterowanie różnymi urządzeniami, a także rozpoznawanie bardziej zaawansowanych komend, takich jak zmiany nastroju czy reakcje na emocje.",
     price: 1499.99,
-    image: "img/NeuroLink_Band_Ultra.jpg",
+    image: "img/NeuroLink_Band_Ultra.png",
   },
 ];
 
 let currentIndex = 0;
 
+const productLink = document.getElementById("product-link");
+
 const updateProductDisplay = () => {
   const product = products[currentIndex];
   document.querySelector(".left h1").textContent = `/ ${product.name}`;
   document.querySelector(".left p").textContent = product.description;
-  document.querySelector(".buy-button").textContent = `Buy ${product.price}`;
+  document.querySelector(".buy-button").textContent = `Kup $${product.price}`;
   document.querySelector(".right img").src = product.image;
   document.querySelector("#carousel-index").textContent = `${String(
     currentIndex + 1
   ).padStart(2, "0")} / ${String(products.length).padStart(2, "0")}`;
+
+  productLink.href = `${product.name.replace(/\s+/g, "-").toLowerCase()}.html`;
 };
 
 document.getElementById("prev-btn").addEventListener("click", () => {
@@ -158,7 +160,6 @@ document.getElementById("next-btn").addEventListener("click", () => {
   updateProductDisplay();
 });
 
-// Initialize with the first product
 updateProductDisplay();
 
 const generateProductList = () => {
@@ -168,12 +169,16 @@ const generateProductList = () => {
   products.forEach((product, index) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("product");
-    productDiv.id = `product-${index}`; // PRZYPISANIE ID NA PODSTAWIE INDEXU
+    productDiv.id = `product-${index}`;
     productDiv.innerHTML = `
       <img src="${product.image}" alt="${product.name}">
+      <div class="product-info">
+      <div class="product-text">
       <h3>${product.name}</h3>
       <p>$${product.price.toFixed(2)}</p>
-      <button class="add-to-cart">Dodaj do koszyka</button>
+      </div>
+      <button class="add-to-cart">Dodaj do koszyka</i></button>
+      </div>
     `;
 
     productDiv.querySelector(".add-to-cart").addEventListener("click", () => {
@@ -188,26 +193,20 @@ const generateProductList = () => {
   });
 };
 
-// Funkcja obsługi przycisku "Buy"
 document.querySelector(".buy-button").addEventListener("click", () => {
-  // Scroll to the main section
   document.getElementById("produkty").scrollIntoView({ behavior: "smooth" });
 
-  // Get the product to highlight
   const productToHighlight = document.getElementById(`product-${currentIndex}`);
 
-  // Usuń poprzednie podświetlenia
   document.querySelectorAll(".product").forEach((product) => {
     product.classList.remove("highlight");
   });
 
-  // Dodaj podświetlenie do wybranego produktu
   if (productToHighlight) {
     productToHighlight.classList.add("highlight");
   }
 });
 
-// Inicjalizacja: wygeneruj listę produktów
 generateProductList();
 
 function addToCart(product) {

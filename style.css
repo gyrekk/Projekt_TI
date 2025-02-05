@@ -511,5 +511,34 @@ nav ul li a:hover {
 .wiad-input:focus{
   outline: none;
 }
-
+.about-us{
+  height: 100vh;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#about-title{
+  font-size: 100px;
+  width: 100%;
+  text-align: center;
+}
+.about-container{
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  padding-left: 40px;
+}
+.about-text{
+  text-align: center;
+  width: 100%;
+  padding: 5%;
+  font-size: 30px;
+}
+.about-img{
+  width: 90%;
+  
+}
 

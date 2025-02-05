@@ -10,57 +10,68 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-    <h2>Podsumowanie zamówienia</h2>
+  <body id="checkout-body">
+    <div class="checkout">
+      <h1>Podsumowanie zamówienia</h1>
 
-    <ul id="order-summary"></ul>
-    <p>
-      <strong>Łączna ilość produktów:</strong>
-      <span id="total-quantity">0</span>
-    </p>
-    <p><strong>Łączna kwota:</strong> <span id="total-price">0.00 PLN</span></p>
+      <ul id="order-summary"></ul>
+      <p>
+        Łączna ilość produktów:
+        <span id="total-quantity">0</span>
+      </p>
+      <p>Łączna kwota: <span id="total-price">0.00 PLN</span></p>
+      <h3>Formularz zamówienia</h3>
+      <form id="order-form">
+        <h4>Dane osobowe</h4>
+        <div class="personal-data">
+          <input type="text" id="name" placeholder="Imię" required />
+          <input type="text" id="name" placeholder="Nazwisko" required />
+          <input type="email" id="email" placeholder="Adres e-mail" required />
+          <input type="tel" id="phone" placeholder="Numer telefonu" required />
+        </div>
 
-    <h3>Formularz zamówienia</h3>
-    <form id="order-form">
-      <h4>Dane osobowe</h4>
-      <input type="text" id="name" placeholder="Imię i nazwisko" required />
-      <input type="email" id="email" placeholder="Adres e-mail" required />
-      <input type="tel" id="phone" placeholder="Numer telefonu" required />
-      <input type="text" id="address" placeholder="Adres dostawy" required />
+        <h4>Dane dostawy</h4>
+        <div class="shipping-data">
+          <input type="text" id="address" placeholder="Miasto" required />
+          <input type="text" id="zipcode" placeholder="Kod Pocztowy" required />
+          <input type="text" id="address" placeholder="Adres" required />
+        </div>
 
-      <h4>Sposób płatności</h4>
-      <label
-        ><input type="radio" name="payment" value="karta" required /> Karta
-        płatnicza</label
-      ><br />
-      <label
-        ><input type="radio" name="payment" value="blik" required /> BLIK</label
-      ><br />
-      <label
-        ><input type="radio" name="payment" value="przelew" required /> Przelew
-        bankowy</label
-      ><br />
-      <label
-        ><input type="radio" name="payment" value="pobranie" required />
-        Płatność przy odbiorze</label
-      ><br />
+        <h4>Sposób płatności</h4>
+        <label
+          ><input type="radio" name="payment" value="karta" required /> Karta
+          płatnicza</label
+        ><br />
+        <label
+          ><input type="radio" name="payment" value="blik" required />
+          BLIK</label
+        ><br />
+        <label
+          ><input type="radio" name="payment" value="przelew" required />
+          Przelew bankowy</label
+        ><br />
+        <label
+          ><input type="radio" name="payment" value="pobranie" required />
+          Płatność przy odbiorze</label
+        ><br />
 
-      <h4>Wybór dostawy</h4>
-      <label
-        ><input type="radio" name="delivery" value="kurier" required />
-        Kurier</label
-      ><br />
-      <label
-        ><input type="radio" name="delivery" value="paczkomat" required />
-        Paczkomat</label
-      ><br />
-      <label
-        ><input type="radio" name="delivery" value="odbior" required /> Odbiór
-        osobisty</label
-      ><br />
+        <h4>Wybór dostawy</h4>
+        <label
+          ><input type="radio" name="delivery" value="kurier" required />
+          Kurier</label
+        ><br />
+        <label
+          ><input type="radio" name="delivery" value="paczkomat" required />
+          Paczkomat</label
+        ><br />
+        <label
+          ><input type="radio" name="delivery" value="odbior" required /> Odbiór
+          osobisty</label
+        ><br />
 
-      <button type="submit">Złóż zamówienie</button>
-    </form>
+        <button type="submit">Złóż zamówienie</button>
+      </form>
+    </div>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -80,14 +91,14 @@
             totalPrice += item.quantity * item.price;
 
             const li = document.createElement("li");
-            li.textContent = `${item.name} - ${item.price.toFixed(2)} PLN (x${
+            li.textContent = `${item.name} - ${item.price.toFixed(2)} USD (x${
               item.quantity
             })`;
             orderSummary.appendChild(li);
           });
 
           totalQuantityElem.textContent = totalQuantity;
-          totalPriceElem.textContent = totalPrice.toFixed(2) + " PLN";
+          totalPriceElem.textContent = totalPrice.toFixed(2) + " USD";
         }
 
         document

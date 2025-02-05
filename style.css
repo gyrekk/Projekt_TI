@@ -1,8 +1,4 @@
 @font-face {
-  font-family: "circular-std";
-  src: url(circular-std-medium-500.ttf);
-}
-@font-face {
   font-family: "PPNeueMontreal";
   src: url(PPNeueMontreal-Medium.otf);
 }
@@ -312,13 +308,6 @@ nav ul li a:hover {
 .hidden {
   display: none;
 }
-#cart {
-  padding: 20px;
-  max-width: 300px;
-  background: white;
-  text-align: center;
-  border-radius: 5px;
-}
 
 #produkty {
   height: 100vh;
@@ -405,17 +394,6 @@ nav ul li a:hover {
   }
 }
 
-#cart {
-  z-index: 1;
-  position: fixed;
-  top: 50px;
-  right: 20px;
-  background: white;
-  padding: 10px;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
 .product-button {
   background-color: transparent;
   border: none;
@@ -427,7 +405,7 @@ nav ul li a:hover {
   color: rgb(194, 194, 194);
 }
 #contact {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   padding: 5%;
   width: 100%;
@@ -435,7 +413,7 @@ nav ul li a:hover {
   justify-content: center;
   flex-wrap: wrap;
 }
-.contact-el{
+.contact-el {
   width: 100%;
   font-size: 30px;
   display: flex;
@@ -443,12 +421,11 @@ nav ul li a:hover {
   align-items: center;
   border-radius: 100px;
   margin-bottom: 25px;
-
 }
-.contact-icon{
+.contact-icon {
   margin-right: 20px;
 }
-.contact-container{
+.contact-container {
   display: flex;
   width: 50%;
   flex-wrap: wrap;
@@ -456,43 +433,42 @@ nav ul li a:hover {
   background-color: rgb(0, 0, 0);
   color: white;
   padding-left: 40px;
-  
 }
-#contact-title{
+#contact-title {
   font-size: 80px;
 }
-#contact-wiad-container{
+#contact-wiad-container {
   display: flex;
   background-color: white;
   width: 50%;
   justify-items: center;
   align-items: center;
 }
-#contact-wiad{
+#contact-wiad {
   margin-top: 10%;
   width: 100%;
   height: 100%;
   justify-items: center;
 }
-.wiad-label{
+.wiad-label {
   color: black;
   font-size: 40px;
 }
-.wiad-input{
+.wiad-input {
   width: 100%;
   border: none;
   border-bottom: 1px solid black;
   height: 30%;
   font-size: 25px;
 }
-.form-group{
+.form-group {
   width: 60%;
   height: 20%;
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
 }
-#wiad-button{
+#wiad-button {
   background-color: black;
   color: white;
   border: none;
@@ -504,26 +480,26 @@ nav ul li a:hover {
   font-size: 30px;
   border: 1px solid black;
 }
-#wiad-button:hover{
+#wiad-button:hover {
   background: transparent;
   color: black;
 }
-.wiad-input:focus{
+.wiad-input:focus {
   outline: none;
 }
-.about-us{
+.about-us {
   height: 100vh;
   display: flex;
   position: relative;
   justify-content: center;
   flex-wrap: wrap;
 }
-#about-title{
+#about-title {
   font-size: 100px;
   width: 100%;
   text-align: center;
 }
-.about-container{
+.about-container {
   display: flex;
   width: 50%;
   flex-wrap: wrap;
@@ -531,14 +507,133 @@ nav ul li a:hover {
   color: rgb(0, 0, 0);
   padding-left: 40px;
 }
-.about-text{
+.about-text {
   text-align: center;
   width: 100%;
   padding: 5%;
   font-size: 30px;
 }
-.about-img{
+.about-img {
   width: 90%;
-  
 }
 
+#cart {
+  z-index: 1;
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  width: auto;
+  background: white;
+  padding: 20px;
+  border: 2px solid #000000;
+}
+#cart h2 {
+  margin-bottom: 20px;
+}
+
+#cart-items {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+#checkout-btn {
+  font-size: 1rem;
+  padding: 10px 0;
+  width: 100%;
+  background: black;
+  color: white;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#checkout-btn:hover {
+  background: transparent;
+  color: black;
+}
+
+#cart-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.decrease-qty,
+.increase-qty {
+  width: 30px;
+  height: 20px;
+  background: black;
+  color: white;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.remove-from-cart {
+  width: 60px;
+  background: black;
+  color: white;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.remove-from-cart:hover,
+.decrease-qty:hover,
+.increase-qty:hover {
+  background: transparent;
+  color: black;
+}
+#checkout-body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkout {
+  padding: 5%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.checkout h3 {
+  margin-top: 20px;
+}
+.checkout h1 {
+  margin-bottom: 20px;
+}
+#order-summary {
+  list-style: none;
+  margin-bottom: 20px;
+}
+#order-form h4 {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+#order-form div {
+  display: flex;
+  gap: 10px;
+}
+#order-form .personal-data input {
+  width: calc((100% / 3) - 30px);
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+#order-form .shipping-data input {
+  width: calc((100% / 2) - 20px);
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+#order-form button {
+  margin-top: 30px;
+  font-size: 1rem;
+  padding: 10px 0;
+  width: 100%;
+  background: black;
+  color: white;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: 0.3s ease;
+}

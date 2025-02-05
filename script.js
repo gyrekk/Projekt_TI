@@ -87,11 +87,9 @@ document.getElementById("submit-register").addEventListener("click", () => {
   document.getElementById("register-form").classList.add("hidden");
 });
 
-// Obsługa koszyka i przycisku zamówienia
 const cartList = document.getElementById("cart-items");
 const cartSection = document.getElementById("cart");
 const cartBtn = document.getElementById("cart-btn");
-const closeCartBtn = document.getElementById("close-cart");
 const checkoutBtn = document.getElementById("checkout-btn");
 
 cartBtn.addEventListener("click", () => {
@@ -226,17 +224,19 @@ function updateCart() {
   cartList.innerHTML = "";
   if (cart.length === 0) {
     cartList.innerHTML = "<p>Koszyk jest pusty.</p>";
-    checkoutBtn.disabled = true;
+    checkoutBtn.style.display = "none";
   } else {
-    checkoutBtn.disabled = false;
+    checkoutBtn.style.display = "block";
     cart.forEach((item, index) => {
       const totalPrice = (item.price * item.quantity).toFixed(2);
       const li = document.createElement("li");
       li.innerHTML = `
-        ${item.name} - ${totalPrice} USD (x${item.quantity}) 
+        <p>${item.name} - ${totalPrice} USD (x${item.quantity}) </p>
+        <div>
         <button class="decrease-qty" data-index="${index}">-</button>
         <button class="increase-qty" data-index="${index}">+</button>
         <button class="remove-from-cart" data-index="${index}">Usuń</button>
+        </div>
       `;
       cartList.appendChild(li);
     });

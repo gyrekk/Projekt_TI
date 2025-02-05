@@ -642,7 +642,7 @@ nav ul li a:hover {
   width: 100%;
   height: 90vh;
   display: flex;
-  padding: 10% 5%;
+  padding: 10%;
 }
 
 .product-left {
@@ -653,9 +653,13 @@ nav ul li a:hover {
   font-size: 4rem;
   margin-bottom: 20px;
 }
-.product-left p {
+.product-left ul {
+  list-style: none;
   margin-right: 10%;
   font-size: 1rem;
+}
+.product-left ul li {
+  margin-bottom: 10px;
 }
 .product-right {
   width: 40%;

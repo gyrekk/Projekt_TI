@@ -31,19 +31,7 @@
       </div>
       <h1>MindSync</h1>
     </header>
-    <script>
-      document.querySelector(".hamburger").addEventListener("click", () => {
-        document.querySelector(".nav").classList.add("active");
-      });
-      document.querySelector(".cross").addEventListener("click", () => {
-        document.querySelector(".nav").classList.remove("active");
-      });
-      const users = [
-        { username: "admin", password: "admin123" },
-        { username: "uzytkownik1", password: "haslo1" },
-        { username: "uzytkownik2", password: "haslo2" },
-      ];
-    </script>
+
     <main class="about-us">
       <h2 id="about-title">O nas</h2>
       <div class="about-container">
@@ -68,5 +56,18 @@
         </p>
       </div>
     </main>
+    <script>
+      document.querySelector(".hamburger").addEventListener("click", () => {
+        document.querySelector(".nav").classList.add("active");
+      });
+      document.querySelector(".cross").addEventListener("click", () => {
+        document.querySelector(".nav").classList.remove("active");
+      });
+      const users = [
+        { username: "admin", password: "admin123" },
+        { username: "uzytkownik1", password: "haslo1" },
+        { username: "uzytkownik2", password: "haslo2" },
+      ];
+    </script>
   </body>
 </html>
